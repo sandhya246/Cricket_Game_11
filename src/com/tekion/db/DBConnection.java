@@ -1,6 +1,10 @@
+package com.tekion.db;
 
 import java.sql.*;
-import java.util.ArrayList;
+import java.util.List;
+
+import com.tekion.beans.Player;
+import com.tekion.beans.Team;
 
 public class DBConnection
 {
@@ -68,7 +72,7 @@ public class DBConnection
     {
         try
         {
-            ArrayList<Player> playerList1=team1.getPlayerList();
+            List<Player> playerList1=team1.getPlayerList();
             int team1_id=team1.getTeam_id();
 
             for(int i=0;i<11;i++)
@@ -76,12 +80,12 @@ public class DBConnection
                 Player player=playerList1.get(i);
                 int player_id=player.getPlayerId();
                 String player_name=player.getPlayerName();
-                String player_role= player.getPlayerRole().toString();
+                String player_role= player.getPlayerRole();
                 preparedStatement= conn.prepareStatement("Insert into Player(player_id,player_name,team_id,player_role) values("+player_id+",'"+player_name+"',"+team1_id+",'"+player_role+"')");
                 preparedStatement.executeUpdate();
             }
 
-            ArrayList<Player> playerList2=team2.getPlayerList();
+            List<Player> playerList2=team2.getPlayerList();
             int team2_id=team2.getTeam_id();
 
             for(int i=0;i<11;i++)
@@ -89,7 +93,7 @@ public class DBConnection
                 Player player=playerList2.get(i);
                 int player_id=player.getPlayerId();
                 String player_name=player.getPlayerName();
-                String player_role= player.getPlayerRole().toString();
+                String player_role= player.getPlayerRole();
 
                 preparedStatement= conn.prepareStatement("Insert into Player(player_id,player_name,team_id,player_role) values("+player_id+",'"+player_name+"',"+team2_id+",'"+player_role+"')");
                 preparedStatement.executeUpdate();
@@ -108,7 +112,7 @@ public class DBConnection
 
         try
         {
-            ArrayList<Player> playerList1=team1.getPlayerList();
+            List<Player> playerList1=team1.getPlayerList();
             int team1_id=team1.getTeam_id();
 
             for(int i=0;i<11;i++)
@@ -126,7 +130,7 @@ public class DBConnection
 
             }
 
-            ArrayList<Player> playerList2=team1.getPlayerList();
+            List<Player> playerList2=team1.getPlayerList();
             int team2_id=team1.getTeam_id();
 
             for(int i=0;i<11;i++)

@@ -1,11 +1,16 @@
+package com.tekion.beans;
+
+import com.tekion.beans.Player;
+import com.tekion.util.PlayerUtil;
+
 import java.util.ArrayList;
-import java.util.Vector;
+import java.util.List;
 
 public class Team
 {
     private int team_id;
     private String team_name;
-    public ArrayList<Player> playerList = new ArrayList<>(11);
+    public List<Player> playerList = new ArrayList<>();
     private int runScored=0;
     private int wicketLost=0;
     private int wicketTaken=0;
@@ -48,7 +53,11 @@ public class Team
         this.runScored+=runScored;
     }
 
+    public void setRunScoredZero(int runScored)
+    {
+      this.runScored=runScored;
 
+    }
     public Player getCurrStriker()
     {
        return this.currStriker;
@@ -103,20 +112,32 @@ public class Team
 
     }
 
-    public ArrayList<Player> getPlayerList()
+    public List<Player> getPlayerList()
     {
         return this.playerList;
     }
 
-    public void resetTeamInfo()
-    {
-         runScored=0;
-         wicketLost=0;
-         wicketTaken=0;
-         runsGiven=0;
-         overBowled=0;
-         striker1=null;
-         striker2=null;
-         currStriker=null;
+    public void setTeam_id(int team_id) {
+        this.team_id = team_id;
+    }
+
+    public void setTeam_name(String team_name) {
+        this.team_name = team_name;
+    }
+
+    public void setPlayerList(List<Player> playerList) {
+        this.playerList = playerList;
+    }
+
+    public void setRunsGiven(int runsGiven) {
+        this.runsGiven = runsGiven;
+    }
+
+    public void setOverBowled(int overBowled) {
+        this.overBowled = overBowled;
+    }
+
+    public void setCurrStriker(Player currStriker) {
+        this.currStriker = currStriker;
     }
 }

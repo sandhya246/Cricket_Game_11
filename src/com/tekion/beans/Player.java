@@ -1,10 +1,10 @@
+package com.tekion.beans;
+
+
+import com.tekion.util.PlayerRole;
+
 public class Player
 {
-    enum PlayerRole
-    {
-        BATSMAN,BOWLER,WICKETKEEPER,ALLROUNDER
-    }
-
     public static final int MAX_OVERS = 5;
     private int playerId;
     private String playerName;
@@ -39,9 +39,9 @@ public class Player
     {
          return this.wicketTaken;
     }
-    public PlayerRole getPlayerRole()
+    public String getPlayerRole()
     {
-       return this.playerRole;
+       return this.playerRole.toString();
     }
     public int getBallThrown()
     {
@@ -78,6 +78,50 @@ public class Player
     {
         return this.noOfSix;
     }
+    public static int getMaxOvers() {
+        return MAX_OVERS;
+    }
+
+    public void setPlayerId(int playerId) {
+        this.playerId = playerId;
+    }
+
+    public void setPlayerName(String playerName) {
+        this.playerName = playerName;
+    }
+
+    public void setPlayerRole(PlayerRole playerRole) {
+        this.playerRole = playerRole;
+    }
+
+    public void setRunScored(int runScored) {
+        this.runScored = runScored;
+    }
+
+    public void setBallPlayed(int ballPlayed) {
+        this.ballPlayed = ballPlayed;
+    }
+
+    public void setRunGiven(int runGiven) {
+        this.runGiven = runGiven;
+    }
+
+    public void setBallThrown(int ballThrown) {
+        this.ballThrown = ballThrown;
+    }
+
+    public void setNoOfFour(int noOfFour) {
+        this.noOfFour = noOfFour;
+    }
+
+    public void setNoOfSix(int noOfSix) {
+        this.noOfSix = noOfSix;
+    }
+
+    public void setOut(int out) {
+        this.out = out;
+    }
+
 
     public int getBallPlayed()
     {
@@ -89,47 +133,7 @@ public class Player
     {
       return "this.playerRole";
     }
-    public void runScored(int run)
-    {
-        switch(run)
-        {
-            case 0:
-                this.ballPlayed++;
-                break;
-            case 1:
-                this.ballPlayed++;
-                this.runScored+=1;
-                break;
-            case 2:
-                 this.ballPlayed++;
-                 this.runScored+=2;
-                 break;
 
-            case 3:
-                 this.ballPlayed++;
-                 this.runScored+=3;
-                 break;
-            case 4:
-                 this.ballPlayed++;
-                 this.runScored+=4;
-                 this.noOfFour++;
-                 break;
-            case 5:
-                 this.ballPlayed++;
-                 this.runScored+=5;
-                 break;
-            case 6:
-                 this.ballPlayed++;
-                 this.runScored+=6;
-                 this.noOfSix++;
-                 break;
-            case 7:
-                this.ballPlayed++;
-                this.out=1;
-
-
-        }
-    }
 
     public void runGiven(int run)
     {
@@ -171,20 +175,4 @@ public class Player
         }
 
     }
-    public void resetPlayerInfo()
-    {
-        ballThrown=0;
-        runScored=0;
-        wicketTaken=0;
-        overBowled=0;
-        ballPlayed=0;
-        runGiven=0;
-        noOfFour=0;
-        noOfSix=0;
-        out=0;
-    }
-
-
-
-
 }
